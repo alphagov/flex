@@ -12,15 +12,15 @@
   "dependencies": {
     "@flex/service-gateway": "workspace:*",
     "@flex/utils": "workspace:*",
-    "zod": "4.4.3"
+    "zod": "4.5.4"
   },
   "devDependencies": {
     "@flex/config": "workspace:*",
     "@flex/sdk": "workspace:*",
     "@flex/testing": "workspace:*",
-    "@vitest/coverage-v8": "4.1.10",
-    "eslint": "10.7.0",
+    "@vitest/coverage-v8": "4.1.11",
+    "eslint": "10.9.1",
     "typescript": "6.0.3",
-    "vitest": "4.1.10"
+    "vitest": "4.1.11"
   }
 }
