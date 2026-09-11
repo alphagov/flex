@@ -1,5 +1,10 @@
 import { it } from "@flex/testing";
-import { clearSelectionsRequest, topicsRequest, userId } from "@tests/fixtures";
+import {
+  clearSelectionsRequest,
+  requestedAt,
+  topicsRequest,
+  userId,
+} from "@tests/fixtures";
 import { describe, expect } from "vitest";
 
 import { handler } from "./patch";
@@ -7,11 +12,14 @@ import { handler } from "./patch";
 describe("PATCH /v1/topics", () => {
   const endpoint = "/topics";
 
-  it("returns 204 when topics are updated", async ({ http, sdk }) => {
+  it.only("returns 204 when topics are updated", async ({ http, sdk }) => {
     http
       .gateway("udp")
       .post("/topics", {
-        headers: { "requesting-service-user-id": userId },
+        headers: {
+          "requesting-service-user-id": userId,
+          "requested-at": requestedAt,
+        },
         body: topicsRequest,
       })
       .reply(200, topicsRequest);

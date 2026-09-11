@@ -15,8 +15,13 @@ export const handler = route("PATCH /v1/topics", async ({ auth }) => {
 async function updateTopics(userId: UserId): Promise<void> {
   const { body, integrations, logger } = context();
 
+  const requestedAt = new Date().toISOString();
+
   const result = await integrations.udpPostTopics({
-    headers: { "requesting-service-user-id": userId },
+    headers: {
+      "requesting-service-user-id": userId,
+      "requested-at": requestedAt,
+    },
     body,
   });
 

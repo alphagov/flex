@@ -1,9 +1,11 @@
-import { createUserId, mergeFixture } from "@flex/testing";
+import { createTimestamp, createUserId, mergeFixture } from "@flex/testing";
 import type { DeepPartial } from "@flex/utils";
 import type { TopicsRequest } from "@schemas/topic";
 
 export { createUserId };
 export const userId = createUserId("test-topics-user");
+
+export const requestedAt = createTimestamp();
 
 export const createTopicsRequest = (overrides?: DeepPartial<TopicsRequest>) =>
   mergeFixture<TopicsRequest>(
